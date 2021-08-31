@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+{{ $data := .Data }}
+
+<div class="container" role="main">
+  <div class="col-md-10 col-md-offset-1">
+    {{ range $key, $value := .Data.Terms.ByCount }}
+    <a href="{{ $value.Name }}" class="btn btn-primary tag-btn" style="margin:5px 0px"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;{{ $value.Name }}&nbsp;({{ $value.Count }})</a>
+    {{ end }}
+  </div>
+</div>
+
+
+{{ end }}
