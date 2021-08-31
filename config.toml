@@ -1,6 +1,6 @@
 baseURL = "https://ysde.github.io/my_blog"
-languageCode = "en-us"
-defaultContentLanguage = "en"
-title = "my site"
+languageCode = "zh-tw"
+defaultContentLanguage = "zh-tw"
+title = "程式筆記"
 theme = "beautifulhugo"
 
