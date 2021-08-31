@@ -1,4 +1,6 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://ysde.github.io/my_blog"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "my site"
 theme = "beautifulhugo"
+
