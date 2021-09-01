@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 程式筆記</title><link>https://ysde.github.io/my_blog/posts/</link><description>Recent content in Posts on 程式筆記</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Wed, 01 Sep 2021 16:31:08 +0800</lastBuildDate><atom:link href="https://ysde.github.io/my_blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>將靜態網站內容上傳至Github</title><link>https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/</link><pubDate>Wed, 01 Sep 2021 16:31:08 +0800</pubDate><guid>https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/</guid><description>根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!
+登入Github，在上面創建一個repository，比如說my_blog
+創建後跟著指示，將網站的資料夾加入到git內並push至Github
+點選 Settings -&amp;gt; Pages，會看到如下的圖，目前Github Pages是disabled
+按下None會可以選擇Branch，要你選一個Branch當作Github Pages的來源，會發現只有剛剛按照指示的 main Branch可以選
+接下來有兩種做法可以選
+在本機用hugo指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至Github 利用Github Action，當我們在本機編輯靜態網站文章後，push到Github上，讓Github Action自動將我們編輯的內容轉成真正的html格式 這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩
+方法 1 可以參考這一篇的做法 在 Github Pages 建立 Hugo 靜態網站
+在剛剛的repository頁面，會看到 Actions 的頁籤，點進去後會看到如下的畫面，按下set up a workflow yourself連結
+貼上這一段code幫你將main的內容，自動轉換成html後放到gh-pages這個branch
+name: github-pages on: push: branches: [ main ] workflow_dispatch: jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 'latest' extended: true - name: Build run: hugo --gc --minify --cleanDestinationDir --buildDrafts - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.</description></item><item><title>利用Hugo產生靜態網站</title><link>https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/</link><pubDate>Tue, 31 Aug 2021 13:50:27 +0800</pubDate><guid>https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/</guid><description>步驟
+安裝Hugo：
+如果是mac的話可以用brew安裝 (什麼是Homebrew)
+brew install hugo 用hugo指令建立blog
+hugo new site your_blog_name 會在本機建立一個 your_blog_name
+目錄結構如下：
+blog/ ├── archetypes │ └── default.md ├── config.toml ├── content ├── data ├── layouts ├── static └── themes 用git submodule 加入你喜歡的Theme到themes的目錄底下
+這裡示範選用beautifulhugo這個theme
+git submodule add https://github.com/appleboy/blog-theme.git themes/beautifulhugo 設定your_blog_name資料夾底下的config.toml，告訴hugo使用beautifulhugo這個theme
+echo 'theme = &amp;quot;beautifulhugo&amp;quot;' &amp;gt;&amp;gt; config.toml config.toml內容會類似像這樣
+baseURL = &amp;quot;https://example.</description></item><item><title>如何用Github當作blog</title><link>https://ysde.github.io/my_blog/posts/first-post/</link><pubDate>Mon, 30 Aug 2021 22:02:55 +0800</pubDate><guid>https://ysde.github.io/my_blog/posts/first-post/</guid><description> 實際上是用Github的Pages的功能，將Github來作為Blog的靜態頁面的伺服器。
+這可以分成兩個部分:
+在本機用hugo產生靜態網站以及文章。請看這裡 部署到Github上 。請看這裡 參考連結:
+將部落格從 Wordpress 轉換到 Hugo Hugo Quick Start [Ting&amp;rsquo;s筆記Day2] 在Github用Jekyll創建自己的blog 在 Github Pages 建立 Hugo 靜態網站</description></item><item><title>歷年文章</title><link>https://ysde.github.io/my_blog/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ysde.github.io/my_blog/archives/</guid><description>歷年文章</description></item></channel></rss>

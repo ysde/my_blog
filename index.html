@@ -1,0 +1,183 @@
+<!doctype html><html lang=zh-tw itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>程式筆記 - 程式筆記</title><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"程式筆記","url":"https:\/\/ysde.github.io\/my_blog"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/ysde.github.io\/my_blog"}</script>
+<meta property="og:title" content="程式筆記">
+<meta property="og:url" content="https://ysde.github.io/my_blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="程式筆記">
+<meta name=twitter:title content="程式筆記">
+<meta name=twitter:card content="summary">
+<meta name=generator content="Hugo 0.87.0"><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous>
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css>
+<link rel=stylesheet href=https://ysde.github.io/my_blog/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://ysde.github.io/my_blog/css/syntax.css><link rel=stylesheet href=https://ysde.github.io/my_blog/css/codeblock.css><link rel=alternate type=application/rss+xml href=https://ysde.github.io/my_blog/index.xml title=程式筆記>
+<link rel=alternate type=application/rss+xml href=https://ysde.github.io/my_blog/index.xml title=程式筆記>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>開關導覽</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://ysde.github.io/my_blog>程式筆記</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div>
+</div>
+</nav>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<div class=page-heading>
+<h1>程式筆記</h1>
+<hr class=small>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8691504652236799" crossorigin=anonymous></script>
+<div role=main class=container>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/>
+<h2 class=post-title>將靜態網站內容上傳至Github</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;發表於 September 1, 2021
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+</span>
+</p>
+<div class=post-entry>
+根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!
+登入Github，在上面創建一個repository，比如說my_blog
+創建後跟著指示，將網站的資料夾加入到git內並push至Github
+點選 Settings -> Pages，會看到如下的圖，目前Github Pages是disabled
+按下None會可以選擇Branch，要你選一個Branch當作Github Pages的來源，會發現只有剛剛按照指示的 main Branch可以選
+接下來有兩種做法可以選
+在本機用hugo指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至Github 利用Github Action，當我們在本機編輯靜態網站文章後，push到Github上，讓Github Action自動將我們編輯的內容轉成真正的html格式 這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩
+方法 1 可以參考這一篇的做法 在 Github Pages 建立 Hugo 靜態網站
+在剛剛的repository頁面，會看到 Actions 的頁籤，點進去後會看到如下的畫面，按下set up a workflow yourself連結
+貼上這一段code幫你將main的內容，自動轉換成html後放到gh-pages這個branch
+name: github-pages on: push: branches: [ main ] workflow_dispatch: jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 'latest' extended: true - name: Build run: hugo --gc --minify --cleanDestinationDir --buildDrafts - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.
+<a href=https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/ class=post-read-more>[閱讀全文]</a>
+</div>
+</article>
+<article class=post-preview>
+<a href=https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/>
+<h2 class=post-title>利用Hugo產生靜態網站</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;發表於 August 31, 2021
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+</span>
+</p>
+<div class=post-entry>
+步驟
+安裝Hugo：
+如果是mac的話可以用brew安裝 (什麼是Homebrew)
+brew install hugo 用hugo指令建立blog
+hugo new site your_blog_name 會在本機建立一個 your_blog_name
+目錄結構如下：
+blog/ ├── archetypes │ └── default.md ├── config.toml ├── content ├── data ├── layouts ├── static └── themes 用git submodule 加入你喜歡的Theme到themes的目錄底下
+這裡示範選用beautifulhugo這個theme
+git submodule add https://github.com/appleboy/blog-theme.git themes/beautifulhugo 設定your_blog_name資料夾底下的config.toml，告訴hugo使用beautifulhugo這個theme
+echo 'theme = "beautifulhugo"' >> config.toml config.toml內容會類似像這樣
+baseURL = "https://example.
+<a href=https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/ class=post-read-more>[閱讀全文]</a>
+</div>
+</article>
+<article class=post-preview>
+<a href=https://ysde.github.io/my_blog/posts/first-post/>
+<h2 class=post-title>如何用Github當作blog</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;發表於 August 30, 2021
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+</span>
+</p>
+<div class=post-entry>
+<blockquote>
+<p>實際上是用<code>Github</code>的<code>Pages</code>的功能，將<code>Github</code>來作為Blog的靜態頁面的伺服器。</p>
+<p>這可以分成兩個部分:</p>
+<blockquote>
+<ol>
+<li>在本機用hugo產生靜態網站以及文章。<a href=https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/>請看這裡</a></li>
+<li>部署到<code>Github</code>上 。<a href=https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/>請看這裡</a></li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>參考連結:</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.wu-boy.com/2021/05/migrate-wordpress-to-hugo/?fbclid=IwAR0WfX20FPbgApwlw2p1-aSyT7OagEihL9hJf69NYWp3xF1b79UVqU_pmsA">將部落格從 Wordpress 轉換到 Hugo</a></li>
+<li><a href=https://gohugo.io/getting-started/quick-start/>Hugo Quick Start</a></li>
+<li><a href=https://ithelp.ithome.com.tw/articles/10198964> [Ting&rsquo;s筆記Day2] 在Github用Jekyll創建自己的blog </a></li>
+<li><a href=https://kaichu.io/2015/07/12/my-first-post/>在 Github Pages 建立 Hugo 靜態網站</a></li>
+</ul>
+</div>
+</article>
+<article class=post-preview>
+<a href=https://ysde.github.io/my_blog/archives/>
+<h2 class=post-title>歷年文章</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;發表於 January 1, 0001
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+</span>
+</p>
+<div class=post-entry>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+<div class=page-meta>
+</div>
+<footer class=post-footer>
+<div class=container>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+</ul>
+<p class="credits copyright text-muted">
+&nbsp;&bull;&nbsp;&copy;
+2021
+&nbsp;&bull;&nbsp;
+<a href=https://ysde.github.io/my_blog>程式筆記</a>
+</p>
+<p class="credits theme-by text-muted">
+由 <a href=https://gohugo.io>Hugo v0.87.0</a> 提供 &nbsp;&bull;&nbsp; 主題 <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> 移植自 <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script>
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script>
+<script src=https://ysde.github.io/my_blog/js/main.js></script>
+<div class=back-to-top id=back-to-top>
+<i class="fas fa-angle-double-up"></i>
+</div>
+</body>
+</html>

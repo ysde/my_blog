@@ -1,0 +1,194 @@
+<!doctype html><html lang=zh-tw itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>將靜態網站內容上傳至Github - 程式筆記</title>
+<meta name=description content="根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!
+   登入Github，在上面創建一個repository，比如說my_blog
+  創建後跟著指示，將網站的資料夾加入到git內並push至Github
+  點選 Settings -> Pages，會看到如下的圖，目前Github Pages是disabled
+按下None會可以選擇Branch，要你選一個Branch當作Github Pages的來源，會發現只有剛剛按照指示的 main Branch可以選
+   接下來有兩種做法可以選
+  在本機用hugo指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至Github 利用Github Action，當我們在本機編輯靜態網站文章後，push到Github上，讓Github Action自動將我們編輯的內容轉成真正的html格式   這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩
+方法 1 可以參考這一篇的做法 在 Github Pages 建立 Hugo 靜態網站
+   在剛剛的repository頁面，會看到 Actions 的頁籤，點進去後會看到如下的畫面，按下set up a workflow yourself連結
+貼上這一段code幫你將main的內容，自動轉換成html後放到gh-pages這個branch
+name: github-pages on: push: branches: [ main ] workflow_dispatch: jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 'latest' extended: true - name: Build run: hugo --gc --minify --cleanDestinationDir --buildDrafts - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets."><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"程式筆記","url":"https:\/\/ysde.github.io\/my_blog"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/ysde.github.io\/my_blog"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/ysde.github.io\/my_blog","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/ysde.github.io\/my_blog\/posts\/20210901_upload_static_site_to_github\/","name":"將靜態網站內容上傳至 github"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":""},"headline":"將靜態網站內容上傳至Github","description":"根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!\n   登入Github，在上面創建一個repository，比如說my_blog\n  創建後跟著指示，將網站的資料夾加入到git內並push至Github\n  點選 Settings -\u0026gt; Pages，會看到如下的圖，目前Github Pages是disabled\n按下None會可以選擇Branch，要你選一個Branch當作Github Pages的來源，會發現只有剛剛按照指示的 main Branch可以選\n   接下來有兩種做法可以選\n  在本機用hugo指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至Github 利用Github Action，當我們在本機編輯靜態網站文章後，push到Github上，讓Github Action自動將我們編輯的內容轉成真正的html格式   這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩\n方法 1 可以參考這一篇的做法 在 Github Pages 建立 Hugo 靜態網站\n   在剛剛的repository頁面，會看到 Actions 的頁籤，點進去後會看到如下的畫面，按下set up a workflow yourself連結\n貼上這一段code幫你將main的內容，自動轉換成html後放到gh-pages這個branch\nname: github-pages on: push: branches: [ main ] workflow_dispatch: jobs: build: runs-on: ubuntu-latest steps: - uses: actions\/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris\/actions-hugo@v2 with: hugo-version: \u0027latest\u0027 extended: true - name: Build run: hugo --gc --minify --cleanDestinationDir --buildDrafts - name: Deploy uses: peaceiris\/actions-gh-pages@v3 with: github_token: ${{ secrets.","inLanguage":"zh-tw","wordCount":115,"datePublished":"2021-09-01T16:31:08","dateModified":"2021-09-01T16:31:08","image":"https:\/\/ysde.github.io\/my_blog","keywords":[""],"mainEntityOfPage":"https:\/\/ysde.github.io\/my_blog\/posts\/20210901_upload_static_site_to_github\/","publisher":{"@type":"Organization","name":"https:\/\/ysde.github.io\/my_blog","logo":{"@type":"ImageObject","url":"https:\/\/ysde.github.io\/my_blog","height":60,"width":60}}}</script>
+<meta property="og:title" content="將靜態網站內容上傳至Github">
+<meta property="og:description" content="根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!
+   登入Github，在上面創建一個repository，比如說my_blog
+  創建後跟著指示，將網站的資料夾加入到git內並push至Github
+  點選 Settings -> Pages，會看到如下的圖，目前Github Pages是disabled
+按下None會可以選擇Branch，要你選一個Branch當作Github Pages的來源，會發現只有剛剛按照指示的 main Branch可以選
+   接下來有兩種做法可以選
+  在本機用hugo指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至Github 利用Github Action，當我們在本機編輯靜態網站文章後，push到Github上，讓Github Action自動將我們編輯的內容轉成真正的html格式   這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩
+方法 1 可以參考這一篇的做法 在 Github Pages 建立 Hugo 靜態網站
+   在剛剛的repository頁面，會看到 Actions 的頁籤，點進去後會看到如下的畫面，按下set up a workflow yourself連結
+貼上這一段code幫你將main的內容，自動轉換成html後放到gh-pages這個branch
+name: github-pages on: push: branches: [ main ] workflow_dispatch: jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 with: submodules: true - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: 'latest' extended: true - name: Build run: hugo --gc --minify --cleanDestinationDir --buildDrafts - name: Deploy uses: peaceiris/actions-gh-pages@v3 with: github_token: ${{ secrets.">
+<meta property="og:url" content="https://ysde.github.io/my_blog/posts/20210901_upload_static_site_to_github/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="程式筆記">
+<meta name=twitter:title content="將靜態網站內容上傳至Github">
+<meta name=twitter:description content="根據上一篇 利用Hugo產生靜態網站完成靜態blog網站製作後，要開始來上傳到Github了!
+   登入Github，在上面創建一個repository，比如說my_blog
+  創建後跟著指示，將網站的資料夾加入到git內並push至Github
+  點選 Settings -> Pages，會看到如下的圖，目前Github Pages是disabled
+按下None會可以選 …">
+<meta name=twitter:card content="summary">
+<meta name=generator content="Hugo 0.87.0"><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous>
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css>
+<link rel=stylesheet href=https://ysde.github.io/my_blog/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://ysde.github.io/my_blog/css/syntax.css><link rel=stylesheet href=https://ysde.github.io/my_blog/css/codeblock.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>開關導覽</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://ysde.github.io/my_blog>程式筆記</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div>
+</div>
+</nav>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<div class=posts-heading>
+<h1>將靜態網站內容上傳至Github</h1>
+<hr class=small>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8691504652236799" crossorigin=anonymous></script>
+<div class=container role=main>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<blockquote>
+<p>根據上一篇 <a href=https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/>利用Hugo產生靜態網站</a>完成靜態blog網站製作後，要開始來上傳到<code>Github</code>了!</p>
+</blockquote>
+<ol>
+<li>
+<p>登入<code>Github</code>，在上面創建一個repository，比如說<code>my_blog</code></p>
+</li>
+<li>
+<p>創建後跟著指示，將網站的資料夾加入到git內並push至<code>Github</code></p>
+</li>
+<li>
+<p>點選 <code>Settings</code> -> <code>Pages</code>，會看到如下的圖，目前<code>Github Pages</code>是disabled</p>
+<p>按下<code>None</code>會可以選擇Branch，要你選一個Branch當作<code>Github Pages</code>的來源，會發現只有剛剛按照指示的 <code>main</code> Branch可以選</p>
+<p><img src=/my_blog/posts/images/2021090102.png alt=alt></p>
+</li>
+</ol>
+<blockquote>
+<p>接下來有兩種做法可以選</p>
+<blockquote>
+<ol>
+<li>在本機用<code>hugo</code>指令，先將剛剛的靜態網站轉換成真正的html格式，然後上傳至<code>Github</code></li>
+<li>利用<code>Github Action</code>，當我們在本機編輯靜態網站文章後，push到<code>Github</code>上，讓<code>Github Action</code>自動將我們編輯的內容轉成真正的html格式</li>
+</ol>
+</blockquote>
+<p>這裡比較偏好 方法 2，省去了在本機轉換成html的麻煩</p>
+<p>方法 1 可以參考這一篇的做法 <a href=https://kaichu.io/2015/07/12/my-first-post/>在 Github Pages 建立 Hugo 靜態網站</a></p>
+</blockquote>
+<ol>
+<li>
+<p>在剛剛的repository頁面，會看到 <code>Actions</code> 的頁籤，點進去後會看到如下的畫面，按下<code>set up a workflow yourself</code>連結</p>
+<p><img src=/my_blog/posts/images/2021090103.png alt=alt></p>
+<p>貼上這一段code幫你將<code>main</code>的內容，自動轉換成html後放到<code>gh-pages</code>這個branch</p>
+<pre><code>name: github-pages
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --gc --minify --cleanDestinationDir --buildDrafts
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          force_orphan: true
+</code></pre>
+</li>
+<li>
+<p>然後可以隨便修改一下檔案，比如說文章加個空白，重新push至<code>main</code>，<code>Github Action</code> 會自動幫你建立 <code>gh-pages</code> 這個 branch</p>
+</li>
+<li>
+<p>重新回到 <code>Settings</code> -> <code>Pages</code> ，按 <code>None</code> 下拉式選單，選擇 <code>gh-pages</code> ，按下 <code>Save</code>，將Github告訴你的網址，更新回 <code>config.toml</code> 檔案的 <code>baseUrl</code> 欄位。再push一次至 <code>main</code>。</p>
+</li>
+</ol>
+<blockquote>
+<p>然後就大功告成啦，<code>Github</code>給你的網址應該會是像這樣 <code>https://你的帳號.github.io/repository名稱/</code>，用這網址就可以看到你的網站囉</p>
+</blockquote>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://ysde.github.io/my_blog/posts/20210901_using_hugo_generate_blog/ data-toggle=tooltip data-placement=top title=利用Hugo產生靜態網站>&larr; 上一篇</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer class=post-footer>
+<div class=container>
+<div class=row>
+<div class="col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+</ul>
+<p class="credits copyright text-muted">
+&nbsp;&bull;&nbsp;&copy;
+2021
+&nbsp;&bull;&nbsp;
+<a href=https://ysde.github.io/my_blog>程式筆記</a>
+</p>
+<p class="credits theme-by text-muted">
+由 <a href=https://gohugo.io>Hugo v0.87.0</a> 提供 &nbsp;&bull;&nbsp; 主題 <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> 移植自 <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script>
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script>
+<script src=https://ysde.github.io/my_blog/js/main.js></script>
+<div class=back-to-top id=back-to-top>
+<i class="fas fa-angle-double-up"></i>
+</div>
+</body>
+</html>
